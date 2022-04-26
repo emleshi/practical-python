@@ -22,6 +22,9 @@ while principal > 0:
         principal -= extra_payment
         total_paid += extra_payment
 
+    if principal < 0:
+        principal = 0
+    
     print(month, round(total_paid,2), round(principal,2))
 
 
