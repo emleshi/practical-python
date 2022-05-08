@@ -9,12 +9,18 @@ def portfolio_cost(filename):
     # Open portfolio file
     with open(filename, 'rt') as file:
         # Get header
-        header = next(file)
+        try:
+            header = next(file)
+        except ValueError:
+            print('Header could not be read')
 
         # Add cost of purchasing all shares
         for line in file:
-            stock = line.split(',')
-            total += int(stock[1]) * float(stock[2])
+            try:
+                stock = line.split(',')
+                total += int(stock[1]) * float(stock[2])
+            except ValueError:
+                print('Data could not be read')
 
     return total
 
