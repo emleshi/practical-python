@@ -25,8 +25,8 @@ while principal > 0:
     if principal < 0:
         principal = 0
     
-    print(f'{month} {round(total_paid,2)} {round(principal,2)}')
+    print(f'{month} {round(total_paid,2):0.2f} {round(principal,2):0.2f}')
 
 
-print(f'Total paid {round(total_paid,2)}')
-print(f'Months {month}')
+print(f'\nTotal paid\t{round(total_paid,2)}')
+print(f'Months\t\t{month}')
