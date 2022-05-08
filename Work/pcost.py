@@ -2,17 +2,21 @@
 #
 # Exercise 1.27
 
-# Total cost variable
-total = 0
+def portfolio_cost(filename):
+    # Total cost variable
+    total = 0
 
-# Open portfolio file
-with open('Data/portfolio.csv', 'rt') as file:
-    # Get header
-    header = next(file)
+    # Open portfolio file
+    with open(filename, 'rt') as file:
+        # Get header
+        header = next(file)
 
-    # Add cost of purchasing all shares
-    for line in file:
-        stock = line.split(',')
-        total += int(stock[1]) * float(stock[2])
+        # Add cost of purchasing all shares
+        for line in file:
+            stock = line.split(',')
+            total += int(stock[1]) * float(stock[2])
 
-print(f'Total cost {total}')
+    return total
+
+cost = portfolio_cost('Data/portfolio.csv')
+print(f'Total cost {cost}')
